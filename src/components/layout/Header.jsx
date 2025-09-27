@@ -22,7 +22,7 @@ const Header = () => {
                     <div className="flex items-center">
                         <img
                             src="/assets/img/logo.png"
-                            alt="JavaPlus Innovations"
+                            alt="ganzy-malgwi technologies"
                             className="h-12 w-auto"
                         />
                     </div>
