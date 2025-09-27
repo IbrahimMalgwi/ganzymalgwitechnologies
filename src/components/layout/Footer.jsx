@@ -22,7 +22,7 @@ const Footer = () => {
                             {[FaFacebook, FaTwitter, FaGoogle, FaLinkedin, FaVimeo, FaYoutube].map((Icon, index) => (
                                 <a
                                     key={index}
-                                    href="#"
+                                    href="about:blank"
                                     className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                                 >
                                     <Icon className="text-lg" />

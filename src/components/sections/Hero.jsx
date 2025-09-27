@@ -43,13 +43,13 @@ const Hero = () => {
         setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
         setIsPlaying(false);
         setTimeout(() => setIsPlaying(true), 8000);
-    }, [heroSlides.length]);
+    }, []); // Removed heroSlides.length dependency
 
     const prevSlide = useCallback(() => {
         setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
         setIsPlaying(false);
         setTimeout(() => setIsPlaying(true), 8000);
-    }, [heroSlides.length]);
+    }, []); // Removed heroSlides.length dependency
 
     const togglePlayPause = useCallback(() => {
         setIsPlaying((prev) => !prev);
@@ -68,7 +68,7 @@ const Hero = () => {
         return () => {
             if (timer) clearInterval(timer);
         };
-    }, [isPlaying, heroSlides.length, isLoading]);
+    }, [isPlaying, isLoading]); // Removed heroSlides.length dependency
 
     // Keyboard navigation
     useEffect(() => {

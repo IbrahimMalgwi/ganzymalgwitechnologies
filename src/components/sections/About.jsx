@@ -1,17 +1,18 @@
 // src/components/sections/About.jsx
 import React, { useState } from 'react';
 import SectionTitle from '../common/SectionTitle';
-import { FaPlay, FaAward, FaUsers, FaRocket, FaShieldAlt } from 'react-icons/fa';
+import { FaPlay } from 'react-icons/fa';
+// import { FaPlay, FaAward, FaUsers, FaRocket, FaShieldAlt } from 'react-icons/fa';
 
 const About = () => {
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
-    const stats = [
-        { icon: FaAward, value: '5+', label: 'Years Experience' },
-        { icon: FaUsers, value: '180+', label: 'Happy Clients' },
-        { icon: FaRocket, value: '35+', label: 'Projects Completed' },
-        { icon: FaShieldAlt, value: '24/7', label: 'Support' }
-    ];
+    // const stats = [
+    //     { icon: FaAward, value: '5+', label: 'Years Experience' },
+    //     { icon: FaUsers, value: '180+', label: 'Happy Clients' },
+    //     { icon: FaRocket, value: '35+', label: 'Projects Completed' },
+    //     { icon: FaShieldAlt, value: '24/7', label: 'Support' }
+    // ];
 
     const industries = [
         'Banks & Financial Services', 'FinTech', 'Healthcare', 'Start-ups',

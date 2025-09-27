@@ -19,7 +19,7 @@ const Testimonials = () => {
         }, 5000);
 
         return () => clearInterval(timer);
-    }, [isAutoPlaying, testimonials.length]);
+    }, [isAutoPlaying]); // Removed testimonials.length dependency
 
     const nextTestimonial = () => {
         setActiveTestimonial(prev => (prev + 1) % testimonials.length);
@@ -31,6 +31,10 @@ const Testimonials = () => {
         setActiveTestimonial(prev => (prev - 1 + testimonials.length) % testimonials.length);
         setIsAutoPlaying(false);
         setTimeout(() => setIsAutoPlaying(true), 10000);
+    };
+
+    const togglePlayPause = () => {
+        setIsAutoPlaying(prev => !prev);
     };
 
     const videoTestimonials = [
@@ -67,7 +71,7 @@ const Testimonials = () => {
                     <SectionTitle
                         tag="CLIENT SUCCESS STORIES"
                         title="What Our Clients Say"
-                        description="Don't just take our word for it. Here's what our valued clients have to say about their experience working with JavaPlus Innovations."
+                        description="Don't just take our word for it. Here's what our valued clients have to say about their experience working with Ganzy-Malgwi Technologies."
                         centered
                     />
                 </div>
@@ -274,7 +278,7 @@ const Testimonials = () => {
                             Ready to Become Our Next Success Story?
                         </h3>
                         <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                            Join our growing list of satisfied clients and experience the JavaPlus difference for yourself.
+                            Join our growing list of satisfied clients and experience the Ganzy-Malgwi Technologies difference for yourself.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <button className="bg-white text-[#0F009A] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300">
@@ -313,10 +317,6 @@ const Testimonials = () => {
             )}
         </section>
     );
-
-    function togglePlayPause() {
-        setIsAutoPlaying(prev => !prev);
-    }
 };
 
 export default Testimonials;

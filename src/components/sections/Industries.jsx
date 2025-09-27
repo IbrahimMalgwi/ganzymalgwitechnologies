@@ -5,7 +5,7 @@ import IndustryCard from '../ui/IndustryCard';
 import IndustryModal from '../ui/IndustryModal';
 import useModal from '../../hooks/useModal';
 import { industries } from '../../data/industries';
-import { FaSearch, FaFilter, FaChartLine, FaUsers, FaLightbulb } from 'react-icons/fa';
+import { FaSearch, FaChartLine, FaUsers, FaLightbulb } from 'react-icons/fa';
 
 const Industries = () => {
     const { isOpen, modalData, openModal, closeModal } = useModal();
