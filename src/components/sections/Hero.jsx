@@ -3,27 +3,29 @@ import React, { useState, useEffect, useCallback } from "react";
 import { FaLongArrowAltRight, FaPlay, FaPause, FaChevronDown } from "react-icons/fa";
 import Button from "../ui/Button";
 
+const slides = [
+    {
+        title: "TECH SOLUTIONS TAILORED FOR CUSTOMERS' NEEDS",
+        subtitle: "Innovative software solutions designed specifically for your business requirements",
+        description: "We add value to your business through cutting-edge technology without losing focus on the customer's need. We design, develop and support software solutions for all businesses.",
+        bgImage: "/assets/img/banner/pi.png",
+    },
+    {
+        title: "DEVELOPED INNOVATIVE SOLUTIONS FOR ALL BUSINESSES",
+        subtitle: "Custom software development and IT outsourcing services",
+        description: "We are at the forefront of technology, providing custom software development for companies, small and large businesses, banks, and others.",
+        bgImage: "/assets/img/banner/1.png",
+    },
+    {
+        title: "ACHIEVE BUSINESS GOALS AND TARGETS",
+        subtitle: "Minimum Viable Products and agile development sprints",
+        description: "We build MVPs and test concepts with users via agile development sprints, delivering core value efficiently.",
+        bgImage: "/assets/img/banner/5.png",
+    },
+];
+
 const Hero = () => {
-    const slides = [
-        {
-            title: "TECH SOLUTIONS TAILORED FOR CUSTOMERS' NEEDS",
-            subtitle: "Innovative software solutions designed specifically for your business requirements",
-            description: "We add value to your business through cutting-edge technology without losing focus on the customer's need. We design, develop and support software solutions for all businesses.",
-            bgImage: "/assets/img/banner/pi.png",
-        },
-        {
-            title: "DEVELOPED INNOVATIVE SOLUTIONS FOR ALL BUSINESSES",
-            subtitle: "Custom software development and IT outsourcing services",
-            description: "We are at the forefront of technology, providing custom software development for companies, small and large businesses, banks, and others.",
-            bgImage: "/assets/img/banner/1.png",
-        },
-        {
-            title: "ACHIEVE BUSINESS GOALS AND TARGETS",
-            subtitle: "Minimum Viable Products and agile development sprints",
-            description: "We build MVPs and test concepts with users via agile development sprints, delivering core value efficiently.",
-            bgImage: "/assets/img/banner/5.png",
-        },
-    ];
+
 
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
@@ -52,7 +54,7 @@ const Hero = () => {
         };
 
         preloadImages();
-    }, []);
+    }, [slides]);
 
     const goToSlide = useCallback((index) => {
         setCurrentSlide(index);
@@ -125,23 +127,23 @@ const Hero = () => {
 
     if (isLoading) {
         return (
-            <section id="home" className="relative min-h-screen gradient-primary flex items-center justify-center">
-                <div className="text-center text-white">
-                    <div className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                    <p className="text-lg">Loading...</p>
+            <section id="home" className="relative min-h-screen bg-gradient-to-br from-white to-gray-50 flex items-center justify-center">
+                <div className="text-center">
+                    <div className="w-16 h-16 border-4 border-[#0F009A] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-lg text-gray-600">Loading...</p>
                 </div>
             </section>
         );
     }
 
     return (
-        <section id="home" className="relative min-h-screen overflow-hidden">
+        <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-white to-gray-50">
             {/* 🔹 Scrolling Welcome Banner on Top */}
-            <div className="absolute top-0 left-0 w-full bg-[#0F009A] text-white py-3 overflow-hidden z-30 shadow-lg">
+            <div className="absolute top-0 left-0 w-full bg-gradient-to-r from-[#0F009A] to-[#6A00FF] text-white py-3 overflow-hidden z-30 shadow-lg">
                 <div className="whitespace-nowrap animate-marquee text-center text-sm md:text-base font-semibold tracking-wider">
                     <span className="inline-flex items-center space-x-4">
                         <span>🚀</span>
-                        <span>WELCOME TO JAVAPLUS INNOVATIONS — INNOVATIVE SOFTWARE SOLUTIONS TAILORED FOR YOUR BUSINESS NEEDS</span>
+                        <span>WELCOME TO GANZY-MALGWI TECHNOLOGIES — INNOVATIVE SOFTWARE SOLUTIONS TAILORED FOR YOUR BUSINESS NEEDS</span>
                         <span>🚀</span>
                     </span>
                 </div>
@@ -179,7 +181,7 @@ const Hero = () => {
 
             {/* Centered Text Content */}
             <div className="relative z-10 min-h-screen flex items-center justify-center pt-24 lg:pt-16">
-                <div className="container-custom px-4">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center text-white space-y-6 lg:space-y-8 max-w-6xl mx-auto">
                         {/* Main Title */}
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-shadow-lg animate-slide-up">
@@ -196,24 +198,24 @@ const Hero = () => {
                             {slides[currentSlide].description}
                         </p>
 
-                        {/* CTA Buttons - Using the btn-white and btn-outline-white classes from your CSS */}
+                        {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in animation-delay-700">
                             <Button
                                 href="#service"
-                                variant="white"
+                                variant="primary"
                                 size="large"
                                 icon={FaLongArrowAltRight}
                                 iconPosition="right"
-                                className="whitespace-nowrap"
+                                className="whitespace-nowrap bg-gradient-to-r from-[#0F009A] to-[#6A00FF] hover:from-[#0D0085] hover:to-[#5A00D5]"
                             >
                                 Our Services
                             </Button>
 
                             <Button
                                 href="#contact"
-                                variant="outline-white"
+                                variant="outline"
                                 size="large"
-                                className="whitespace-nowrap"
+                                className="whitespace-nowrap border-2 border-white text-white hover:bg-white hover:text-[#0F009A]"
                             >
                                 Start a Project
                             </Button>
@@ -238,7 +240,7 @@ const Hero = () => {
 
             {/* Slide Controls */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-                <div className="flex items-center space-x-4 lg:space-x-6 glass rounded-full px-4 py-2 lg:px-6 lg:py-3">
+                <div className="flex items-center space-x-4 lg:space-x-6 bg-white bg-opacity-10 backdrop-blur-sm rounded-full px-4 py-2 lg:px-6 lg:py-3 border border-white border-opacity-20">
                     {/* Previous Button */}
                     <button
                         onClick={prevSlide}
@@ -304,6 +306,10 @@ const Hero = () => {
                 </span>
                 <FaChevronDown className="w-4 h-4 animate-bounce-slow" />
             </button>
+
+            {/* Background Elements matching your design */}
+            <div className="absolute top-0 left-0 w-80 h-80 bg-[#0F009A] opacity-5 rounded-full -translate-x-40 -translate-y-40"></div>
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0F009A] opacity-5 rounded-full translate-x-48 translate-y-48"></div>
 
             {/* Floating Elements for Visual Interest */}
             <div className="absolute top-1/4 left-10 w-6 h-6 bg-yellow-400 rounded-full opacity-20 animate-float animation-delay-300 hidden lg:block"></div>

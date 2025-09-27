@@ -26,15 +26,19 @@ const About = () => {
             <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-[#0F009A] opacity-3 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
 
             <div className="container-custom relative z-10">
+                {/* Centered Header Section */}
+                <div className="text-center mb-12">
+                    <SectionTitle
+                        tag="ABOUT GANZY-MALGWI TECHNOLOGIES"
+                        title="Leading Software Solution Providers"
+                        description=""
+                        centered
+                    />
+                </div>
+
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     {/* Text Content */}
                     <div className="space-y-8">
-                        <SectionTitle
-                            tag="ABOUT JAVAPLUS"
-                            title="Leading Software Solution Providers"
-                            className="text-left"
-                        />
-
                         {/* Main Description */}
                         <div className="space-y-6">
                             <p className="text-lg text-gray-700 leading-relaxed">

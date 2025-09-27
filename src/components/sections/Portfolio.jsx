@@ -1,9 +1,9 @@
-// src/components/sections/Portfolio.jsx
+ // src/components/sections/Portfolio.jsx
 import React, { useState } from 'react';
 import SectionTitle from '../common/SectionTitle';
 import PortfolioCard from '../ui/PortfolioCard';
 import { portfolioItems } from '../../data/portfolio';
-import { FaFilter, FaSearch, FaExternalLinkAlt, FaGithub, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaSearch, FaExternalLinkAlt, FaGithub, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const Portfolio = () => {
     const [activeFilter, setActiveFilter] = useState('all');
