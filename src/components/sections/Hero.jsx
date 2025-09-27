@@ -196,24 +196,24 @@ const Hero = () => {
                             {slides[currentSlide].description}
                         </p>
 
-                        {/* CTA Buttons - Using your existing Button variants */}
+                        {/* CTA Buttons - Using the btn-white and btn-outline-white classes from your CSS */}
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in animation-delay-700">
                             <Button
                                 href="#service"
-                                variant="primary"
+                                variant="white"
                                 size="large"
                                 icon={FaLongArrowAltRight}
                                 iconPosition="right"
-                                className="whitespace-nowrap transform hover:scale-105 bg-white text-[#0F009A] hover:bg-gray-100 border-2 border-white"
+                                className="whitespace-nowrap"
                             >
                                 Our Services
                             </Button>
 
                             <Button
                                 href="#contact"
-                                variant="outline"
+                                variant="outline-white"
                                 size="large"
-                                className="whitespace-nowrap transform hover:scale-105 border-2 border-white text-white hover:bg-white hover:text-[#0F009A]"
+                                className="whitespace-nowrap"
                             >
                                 Start a Project
                             </Button>
@@ -238,7 +238,7 @@ const Hero = () => {
 
             {/* Slide Controls */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-                <div className="flex items-center space-x-4 lg:space-x-6 glass rounded-full px-4 py-2 lg:px-6 lg:py-3 backdrop-blur-md">
+                <div className="flex items-center space-x-4 lg:space-x-6 glass rounded-full px-4 py-2 lg:px-6 lg:py-3">
                     {/* Previous Button */}
                     <button
                         onClick={prevSlide}
