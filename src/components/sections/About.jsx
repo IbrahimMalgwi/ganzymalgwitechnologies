@@ -23,7 +23,7 @@ const About = () => {
             {/* Background Elements */}
             <div className="absolute top-10 left-10 w-64 h-64 bg-[#0F009A] opacity-5 rounded-full -translate-x-32 -translate-y-32"></div>
             <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#0F009A] opacity-5 rounded-full translate-x-40 translate-y-40"></div>
-            <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-[#0F009A] opacity-3 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+            {/*<div className="absolute top-1/2 left-1/2 w-96 h-96 bg-[#0F009A] opacity-3 rounded-full -translate-x-1/2 -translate-y-1/2"></div>*/}
 
             <div className="container-custom relative z-10">
                 {/* Centered Header Section */}
@@ -36,8 +36,9 @@ const About = () => {
                     />
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    {/* Text Content */}
+                {/* Main Content - Text on Left, Images on Right */}
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                    {/* Text Content - Left Side */}
                     <div className="space-y-8">
                         {/* Main Description */}
                         <div className="space-y-6">
@@ -65,54 +66,18 @@ const About = () => {
                                 </div>
                             </div>
                         </div>
-
-                        {/* Stats Grid */}
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
-                            {stats.map((stat, index) => {
-                                const IconComponent = stat.icon;
-                                return (
-                                    <div key={index} className="text-center group">
-                                        <div className="bg-white p-4 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                                            <div className="text-[#0F009A] text-2xl mb-2 flex justify-center">
-                                                <IconComponent />
-                                            </div>
-                                            <div className="text-2xl lg:text-3xl font-bold text-gray-800 mb-1">
-                                                {stat.value}
-                                            </div>
-                                            <div className="text-sm text-gray-600 font-medium">
-                                                {stat.label}
-                                            </div>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-
-                        {/* CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                            <button className="bg-[#0F009A] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#0D0085] transform hover:scale-105 transition-all duration-300 shadow-lg shadow-[#0F009A]/25 flex items-center justify-center">
-                                Learn More About Us
-                            </button>
-                            <button
-                                onClick={() => setIsVideoPlaying(true)}
-                                className="border-2 border-[#0F009A] text-[#0F009A] px-8 py-3 rounded-lg font-semibold hover:bg-[#0F009A] hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
-                            >
-                                <FaPlay className="w-4 h-4" />
-                                Watch Intro Video
-                            </button>
-                        </div>
                     </div>
 
-                    {/* Visual Content */}
+                    {/* Visual Content - Right Side */}
                     <div className="relative">
-                        {/* Main Image Grid */}
+                        {/* Main Image Grid - Both images same size */}
                         <div className="grid grid-cols-2 gap-4 lg:gap-6">
                             <div className="space-y-4 lg:space-y-6">
                                 <div className="relative group">
                                     <img
                                         src="/assets/img/tile-gallery/a2.jpg"
                                         alt="Our Team at Work"
-                                        className="w-full h-48 lg:h-56 object-cover rounded-2xl shadow-xl group-hover:scale-105 transition-transform duration-500"
+                                        className="w-full h-56 lg:h-64 object-cover rounded-2xl shadow-xl group-hover:scale-105 transition-transform duration-500"
                                     />
                                     <div className="absolute inset-0 bg-[#0F009A] opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
                                 </div>
@@ -122,7 +87,7 @@ const About = () => {
                                 </div>
                             </div>
 
-                            <div className="space-y-4 lg:space-y-6 mt-8 lg:mt-12">
+                            <div className="space-y-4 lg:space-y-6">
                                 <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
                                     <h4 className="font-bold text-gray-800 mb-2">Quality First</h4>
                                     <p className="text-sm text-gray-600">Rigorous testing and quality assurance processes</p>
@@ -131,7 +96,7 @@ const About = () => {
                                     <img
                                         src="/assets/img/tile-gallery/470pic.jpg"
                                         alt="Our Development Process"
-                                        className="w-full h-48 lg:h-56 object-cover rounded-2xl shadow-xl group-hover:scale-105 transition-transform duration-500"
+                                        className="w-full h-56 lg:h-64 object-cover rounded-2xl shadow-xl group-hover:scale-105 transition-transform duration-500"
                                     />
                                     <div className="absolute inset-0 bg-[#0F009A] opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
                                 </div>
@@ -152,37 +117,93 @@ const About = () => {
                     </div>
                 </div>
 
+                {/* Stats and CTA Buttons - Side by side under main content */}
+                {/*<div className="grid lg:grid-cols-2 gap-8 mt-12 pt-12 border-t border-gray-200">*/}
+                {/*    /!* Stats Grid *!/*/}
+                {/*    <div>*/}
+                {/*        <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center lg:text-left">Our Achievements</h3>*/}
+                {/*        <div className="grid grid-cols-2 gap-6">*/}
+                {/*            {stats.map((stat, index) => {*/}
+                {/*                const IconComponent = stat.icon;*/}
+                {/*                return (*/}
+                {/*                    <div key={index} className="text-center group">*/}
+                {/*                        <div className="bg-white p-4 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">*/}
+                {/*                            <div className="text-[#0F009A] text-2xl mb-2 flex justify-center">*/}
+                {/*                                <IconComponent />*/}
+                {/*                            </div>*/}
+                {/*                            <div className="text-2xl lg:text-3xl font-bold text-gray-800 mb-1">*/}
+                {/*                                {stat.value}*/}
+                {/*                            </div>*/}
+                {/*                            <div className="text-sm text-gray-600 font-medium">*/}
+                {/*                                {stat.label}*/}
+                {/*                            </div>*/}
+                {/*                        </div>*/}
+                {/*                    </div>*/}
+                {/*                );*/}
+                {/*            })}*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+
+                {/*    /!* CTA Buttons *!/*/}
+                {/*    <div className="flex flex-col justify-center space-y-6">*/}
+                {/*        <h3 className="text-2xl font-bold text-gray-800 mb-2 text-center lg:text-left">Get to Know Us Better</h3>*/}
+                {/*        <div className="flex flex-col sm:flex-row gap-4">*/}
+                {/*            <button className="bg-[#0F009A] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#0D0085] transform hover:scale-105 transition-all duration-300 shadow-lg shadow-[#0F009A]/25 flex items-center justify-center">*/}
+                {/*                Learn More About Us*/}
+                {/*            </button>*/}
+                {/*            <button*/}
+                {/*                onClick={() => setIsVideoPlaying(true)}*/}
+                {/*                className="border-2 border-[#0F009A] text-[#0F009A] px-8 py-3 rounded-lg font-semibold hover:bg-[#0F009A] hover:text-white transition-all duration-300 flex items-center justify-center gap-2"*/}
+                {/*            >*/}
+                {/*                <FaPlay className="w-4 h-4" />*/}
+                {/*                Watch Intro Video*/}
+                {/*            </button>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
                 {/* Values Section */}
-                <div className="grid md:grid-cols-3 gap-8 mt-16 pt-16 border-t border-gray-200">
-                    {[
-                        {
-                            title: "Mission",
-                            description: "To empower digital enterprises through innovative software solutions that drive growth and efficiency.",
-                            color: "from-[#0F009A] to-[#6A00FF]"
-                        },
-                        {
-                            title: "Vision",
-                            description: "To be the leading technology partner for businesses seeking digital transformation and innovation.",
-                            color: "from-[#8B5CF6] to-[#C4B5FD]"
-                        },
-                        {
-                            title: "Values",
-                            description: "Excellence, Innovation, Integrity, and Customer Success guide everything we do.",
-                            color: "from-[#06B6D4] to-[#22D3EE]"
-                        }
-                    ].map((item, index) => (
-                        <div key={index} className="text-center group">
-                            <div className={`bg-gradient-to-br ${item.color} p-1 rounded-2xl mb-6 inline-block`}>
-                                <div className="bg-white rounded-xl p-3">
-                                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto`}>
-                                        <span className="text-white text-lg font-bold">{index + 1}</span>
+                <div className="text-center mt-16 pt-16 border-t border-gray-200">
+                    <div className="mb-12">
+                        <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+                            Our Core Principles
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Guided by a strong foundation of values that drive our commitment to excellence and innovation
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        {[
+                            {
+                                title: "Mission",
+                                description: "To empower digital enterprises through innovative software solutions that drive growth and efficiency.",
+                                color: "from-[#0F009A] to-[#6A00FF]"
+                            },
+                            {
+                                title: "Vision",
+                                description: "To be the leading technology partner for businesses seeking digital transformation and innovation.",
+                                color: "from-[#8B5CF6] to-[#C4B5FD]"
+                            },
+                            {
+                                title: "Values",
+                                description: "Excellence, Innovation, Integrity, and Customer Success guide everything we do.",
+                                color: "from-[#06B6D4] to-[#22D3EE]"
+                            }
+                        ].map((item, index) => (
+                            <div key={index} className="text-center group">
+                                <div className={`bg-gradient-to-br ${item.color} p-1 rounded-2xl mb-6 inline-block`}>
+                                    <div className="bg-white rounded-xl p-3">
+                                        <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto`}>
+                                            <span className="text-white text-lg font-bold">{index + 1}</span>
+                                        </div>
                                     </div>
                                 </div>
+                                <h3 className="text-xl font-bold text-gray-800 mb-3">{item.title}</h3>
+                                <p className="text-gray-600 leading-relaxed">{item.description}</p>
                             </div>
-                            <h3 className="text-xl font-bold text-gray-800 mb-3">{item.title}</h3>
-                            <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
 

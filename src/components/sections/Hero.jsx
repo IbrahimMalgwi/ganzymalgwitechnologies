@@ -1,32 +1,9 @@
-// src/components/sections/Hero.jsx
 import React, { useState, useEffect, useCallback } from "react";
 import { FaLongArrowAltRight, FaPlay, FaPause, FaChevronDown } from "react-icons/fa";
 import Button from "../ui/Button";
-
-const slides = [
-    {
-        title: "TECH SOLUTIONS TAILORED FOR CUSTOMERS' NEEDS",
-        subtitle: "Innovative software solutions designed specifically for your business requirements",
-        description: "We add value to your business through cutting-edge technology without losing focus on the customer's need. We design, develop and support software solutions for all businesses.",
-        bgImage: "/assets/img/banner/pi.png",
-    },
-    {
-        title: "DEVELOPED INNOVATIVE SOLUTIONS FOR ALL BUSINESSES",
-        subtitle: "Custom software development and IT outsourcing services",
-        description: "We are at the forefront of technology, providing custom software development for companies, small and large businesses, banks, and others.",
-        bgImage: "/assets/img/banner/1.png",
-    },
-    {
-        title: "ACHIEVE BUSINESS GOALS AND TARGETS",
-        subtitle: "Minimum Viable Products and agile development sprints",
-        description: "We build MVPs and test concepts with users via agile development sprints, delivering core value efficiently.",
-        bgImage: "/assets/img/banner/5.png",
-    },
-];
+import { heroSlides } from "../../data/hero";
 
 const Hero = () => {
-
-
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
@@ -34,7 +11,7 @@ const Hero = () => {
     // Preload images
     useEffect(() => {
         const preloadImages = async () => {
-            const imagePromises = slides.map(
+            const imagePromises = heroSlides.map(
                 (slide) =>
                     new Promise((resolve, reject) => {
                         const img = new Image();
@@ -54,7 +31,7 @@ const Hero = () => {
         };
 
         preloadImages();
-    }, [slides]);
+    }, []);
 
     const goToSlide = useCallback((index) => {
         setCurrentSlide(index);
@@ -63,16 +40,16 @@ const Hero = () => {
     }, []);
 
     const nextSlide = useCallback(() => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
+        setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
         setIsPlaying(false);
         setTimeout(() => setIsPlaying(true), 8000);
-    }, [slides.length]);
+    }, [heroSlides.length]);
 
     const prevSlide = useCallback(() => {
-        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+        setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
         setIsPlaying(false);
         setTimeout(() => setIsPlaying(true), 8000);
-    }, [slides.length]);
+    }, [heroSlides.length]);
 
     const togglePlayPause = useCallback(() => {
         setIsPlaying((prev) => !prev);
@@ -85,13 +62,13 @@ const Hero = () => {
         let timer;
         if (isPlaying) {
             timer = setInterval(() => {
-                setCurrentSlide((prev) => (prev + 1) % slides.length);
+                setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
             }, 5000);
         }
         return () => {
             if (timer) clearInterval(timer);
         };
-    }, [isPlaying, slides.length, isLoading]);
+    }, [isPlaying, heroSlides.length, isLoading]);
 
     // Keyboard navigation
     useEffect(() => {
@@ -151,7 +128,7 @@ const Hero = () => {
 
             {/* Background Slideshow */}
             <div className="absolute inset-0 z-0">
-                {slides.map((slide, index) => (
+                {heroSlides.map((slide, index) => (
                     <div
                         key={index}
                         className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
@@ -167,13 +144,8 @@ const Hero = () => {
                                 backgroundSize: "cover",
                             }}
                         >
-                            {/* Enhanced gradient overlay */}
-                            <div
-                                className="absolute inset-0"
-                                style={{
-                                    background: "linear-gradient(135deg, rgba(15, 0, 154, 0.85) 0%, rgba(106, 0, 255, 0.85) 50%, rgba(15, 0, 154, 0.95) 100%)",
-                                }}
-                            ></div>
+                            {/* Light overlay for better text readability */}
+                            <div className="absolute inset-0 bg-black opacity-40"></div>
                         </div>
                     </div>
                 ))}
@@ -185,17 +157,17 @@ const Hero = () => {
                     <div className="text-center text-white space-y-6 lg:space-y-8 max-w-6xl mx-auto">
                         {/* Main Title */}
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-shadow-lg animate-slide-up">
-                            {slides[currentSlide].title}
+                            {heroSlides[currentSlide].title}
                         </h1>
 
                         {/* Subtitle */}
                         <p className="text-xl lg:text-2xl xl:text-3xl text-blue-100 font-light leading-relaxed max-w-4xl mx-auto animate-slide-up animation-delay-300">
-                            {slides[currentSlide].subtitle}
+                            {heroSlides[currentSlide].subtitle}
                         </p>
 
                         {/* Description */}
-                        <p className="text-lg lg:text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto animate-slide-up animation-delay-500">
-                            {slides[currentSlide].description}
+                        <p className="text-lg lg:text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto animate-slide-up animation-delay-500">
+                            {heroSlides[currentSlide].description}
                         </p>
 
                         {/* CTA Buttons */}
@@ -230,7 +202,7 @@ const Hero = () => {
                             ].map((stat, index) => (
                                 <div key={index} className="text-center">
                                     <div className="text-3xl lg:text-4xl font-bold text-white mb-2">{stat.number}</div>
-                                    <div className="text-blue-100 text-sm lg:text-base font-medium">{stat.label}</div>
+                                    <div className="text-gray-200 text-sm lg:text-base font-medium">{stat.label}</div>
                                 </div>
                             ))}
                         </div>
@@ -267,7 +239,7 @@ const Hero = () => {
 
                     {/* Slide Indicators */}
                     <div className="flex space-x-3">
-                        {slides.map((_, index) => (
+                        {heroSlides.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => goToSlide(index)}
