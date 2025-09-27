@@ -51,11 +51,10 @@ const Portfolio = () => {
     ];
 
     return (
-        <section id="portfolio" className="section-padding bg-gradient-to-br from-[#0F009A] to-[#6A00FF] text-white relative overflow-hidden">
+        <section id="portfolio" className="section-padding bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
             {/* Background Elements */}
-            <div className="absolute top-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full -translate-x-48 -translate-y-48"></div>
-            <div className="absolute bottom-0 right-0 w-80 h-80 bg-white opacity-5 rounded-full translate-x-40 translate-y-40"></div>
-            <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-white opacity-3 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute top-0 left-0 w-80 h-80 bg-[#0F009A] opacity-5 rounded-full -translate-x-40 -translate-y-40"></div>
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0F009A] opacity-5 rounded-full translate-x-48 translate-y-48"></div>
 
             <div className="container-custom relative z-10">
                 {/* Header Section */}
@@ -65,7 +64,6 @@ const Portfolio = () => {
                         title="Showcasing Our Excellence"
                         description="Explore our diverse portfolio of successful projects that demonstrate our expertise in delivering innovative software solutions across various industries."
                         centered
-                        className="text-white"
                     />
                 </div>
 
@@ -73,11 +71,11 @@ const Portfolio = () => {
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                     {stats.map((stat, index) => (
                         <div key={index} className="text-center group">
-                            <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20 hover:bg-opacity-20 transition-all duration-300 transform hover:-translate-y-1">
-                                <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
+                            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                                <div className="text-3xl lg:text-4xl font-bold text-[#0F009A] mb-2">
                                     {stat.value}
                                 </div>
-                                <div className="text-blue-100 font-medium">
+                                <div className="text-gray-600 font-medium">
                                     {stat.label}
                                 </div>
                             </div>
@@ -96,15 +94,15 @@ const Portfolio = () => {
                             }}
                             className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
                                 activeFilter === category.id
-                                    ? 'bg-white text-[#0F009A] shadow-lg shadow-white/25'
-                                    : 'bg-white bg-opacity-10 text-white hover:bg-opacity-20 backdrop-blur-sm'
+                                    ? 'bg-[#0F009A] text-white shadow-lg shadow-[#0F009A]/25'
+                                    : 'bg-white text-gray-700 hover:bg-gray-50 shadow-lg border border-gray-200'
                             }`}
                         >
                             {category.name}
                             <span className={`ml-2 px-2 py-1 rounded-full text-xs ${
                                 activeFilter === category.id
-                                    ? 'bg-[#0F009A] text-white'
-                                    : 'bg-white bg-opacity-20'
+                                    ? 'bg-white/20'
+                                    : 'bg-gray-100'
                             }`}>
                                 {category.count}
                             </span>
@@ -127,11 +125,11 @@ const Portfolio = () => {
                 {/* No Projects Message */}
                 {currentProjects.length === 0 && (
                     <div className="text-center py-12">
-                        <div className="w-24 h-24 bg-white bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <FaSearch className="w-8 h-8 text-white opacity-50" />
+                        <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <FaSearch className="w-8 h-8 text-gray-400" />
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-2">No projects found</h3>
-                        <p className="text-blue-100">Try selecting a different category</p>
+                        <h3 className="text-xl font-bold text-gray-800 mb-2">No projects found</h3>
+                        <p className="text-gray-600">Try selecting a different category</p>
                     </div>
                 )}
 
@@ -141,7 +139,7 @@ const Portfolio = () => {
                         <button
                             onClick={prevPage}
                             disabled={currentPage === 1}
-                            className="p-3 rounded-full bg-white bg-opacity-10 text-white hover:bg-opacity-20 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-110"
+                            className="p-3 rounded-full bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-110 border border-gray-200 shadow-lg"
                             aria-label="Previous page"
                         >
                             <FaArrowLeft className="w-5 h-5" />
@@ -157,8 +155,8 @@ const Portfolio = () => {
                                     }}
                                     className={`w-10 h-10 rounded-full font-semibold transition-all duration-300 ${
                                         currentPage === index + 1
-                                            ? 'bg-white text-[#0F009A] shadow-lg'
-                                            : 'bg-white bg-opacity-10 text-white hover:bg-opacity-20'
+                                            ? 'bg-[#0F009A] text-white shadow-lg'
+                                            : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
                                     }`}
                                 >
                                     {index + 1}
@@ -169,7 +167,7 @@ const Portfolio = () => {
                         <button
                             onClick={nextPage}
                             disabled={currentPage === totalPages}
-                            className="p-3 rounded-full bg-white bg-opacity-10 text-white hover:bg-opacity-20 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-110"
+                            className="p-3 rounded-full bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-110 border border-gray-200 shadow-lg"
                             aria-label="Next page"
                         >
                             <FaArrowRight className="w-5 h-5" />
@@ -179,18 +177,18 @@ const Portfolio = () => {
 
                 {/* CTA Section */}
                 <div className="text-center mt-16">
-                    <div className="bg-white rounded-2xl p-8 lg:p-12 text-[#0F009A] shadow-2xl">
+                    <div className="bg-gradient-to-r from-[#0F009A] to-[#6A00FF] rounded-2xl p-8 lg:p-12 text-white shadow-2xl">
                         <h3 className="text-2xl lg:text-3xl font-bold mb-4">
                             Ready to Start Your Project?
                         </h3>
-                        <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                        <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
                             Let's create something amazing together. Contact us to discuss your project ideas and get a free consultation.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button className="bg-[#0F009A] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#0D0085] transform hover:scale-105 transition-all duration-300 shadow-lg shadow-[#0F009A]/25">
+                            <button className="bg-white text-[#0F009A] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300">
                                 Start a Project
                             </button>
-                            <button className="border-2 border-[#0F009A] text-[#0F009A] px-8 py-3 rounded-lg font-semibold hover:bg-[#0F009A] hover:text-white transition-all duration-300">
+                            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#0F009A] transition-all duration-300">
                                 View All Case Studies
                             </button>
                         </div>
@@ -278,6 +276,21 @@ const Portfolio = () => {
                                         </ul>
                                     </div>
                                 </div>
+
+                                {/* Project Results */}
+                                {activeProject.results && (
+                                    <div className="bg-gray-50 rounded-lg p-6 mb-6">
+                                        <h4 className="font-bold text-gray-800 mb-3">Project Results</h4>
+                                        <div className="grid grid-cols-2 gap-4">
+                                            {activeProject.results.map((result, index) => (
+                                                <div key={index} className="text-center">
+                                                    <div className="text-2xl font-bold text-[#0F009A]">{result.value}</div>
+                                                    <div className="text-sm text-gray-600">{result.label}</div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>

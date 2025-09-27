@@ -21,7 +21,7 @@ const PortfolioCard = ({ item, index, onViewDetails }) => {
             {/* Animated Background Effect */}
             <div className={`absolute inset-0 bg-gradient-to-br ${categoryColors[item.category]} rounded-2xl opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
 
-            <div className="relative bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white border-opacity-20 hover:border-opacity-30 transition-all duration-500 transform hover:-translate-y-2 h-full flex flex-col">
+            <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 h-full flex flex-col">
                 {/* Image Container */}
                 <div className="relative overflow-hidden">
                     <img
@@ -56,7 +56,7 @@ const PortfolioCard = ({ item, index, onViewDetails }) => {
                                     href={item.githubUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-white text-[#0F009A] w-12 h-12 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors duration-300 transform hover:scale-110"
+                                    className="bg-white text-gray-700 w-12 h-12 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors duration-300 transform hover:scale-110"
                                     aria-label="View code"
                                 >
                                     <FaGithub className="w-5 h-5" />
@@ -67,7 +67,7 @@ const PortfolioCard = ({ item, index, onViewDetails }) => {
 
                     {/* Category Badge */}
                     <div className="absolute top-4 left-4">
-                        <span className="bg-white text-[#0F009A] px-3 py-1 rounded-full text-sm font-medium capitalize">
+                        <span className="bg-white text-[#0F009A] px-3 py-1 rounded-full text-sm font-medium capitalize shadow-lg">
                             {item.category}
                         </span>
                     </div>
@@ -75,11 +75,11 @@ const PortfolioCard = ({ item, index, onViewDetails }) => {
 
                 {/* Content */}
                 <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-xl font-bold text-white mb-2 line-clamp-2">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2 line-clamp-2">
                         {item.title}
                     </h3>
 
-                    <p className="text-blue-100 leading-relaxed flex-grow mb-4 line-clamp-3">
+                    <p className="text-gray-600 leading-relaxed flex-grow mb-4 line-clamp-3">
                         {item.description}
                     </p>
 
@@ -87,12 +87,12 @@ const PortfolioCard = ({ item, index, onViewDetails }) => {
                     {item.technologies && (
                         <div className="flex flex-wrap gap-2 mb-4">
                             {item.technologies.slice(0, 3).map((tech, idx) => (
-                                <span key={idx} className="bg-white bg-opacity-20 text-white px-2 py-1 rounded text-xs">
+                                <span key={idx} className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
                                     {tech}
                                 </span>
                             ))}
                             {item.technologies.length > 3 && (
-                                <span className="bg-white bg-opacity-20 text-white px-2 py-1 rounded text-xs">
+                                <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
                                     +{item.technologies.length - 3}
                                 </span>
                             )}
@@ -102,7 +102,7 @@ const PortfolioCard = ({ item, index, onViewDetails }) => {
                     {/* View Details Link */}
                     <button
                         onClick={onViewDetails}
-                        className="flex items-center text-white font-semibold hover:text-blue-200 transition-colors duration-300 mt-auto pt-4 border-t border-white border-opacity-20"
+                        className="flex items-center text-[#0F009A] font-semibold hover:text-[#0D0085] transition-colors duration-300 mt-auto pt-4 border-t border-gray-100"
                     >
                         View Case Study
                         <svg
