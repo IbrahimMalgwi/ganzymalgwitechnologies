@@ -10,9 +10,9 @@ const Footer = () => {
                 <div className="grid md:grid-cols-3 gap-8">
                     {/* Company Info */}
                     <div>
-                        <h4 className="text-xl font-bold mb-4">JavaPlus Innovations</h4>
+                        <h4 className="text-xl font-bold mb-4">Ganzy-Malgwi Technologies</h4>
                         <p className="text-gray-300 mb-6">
-                            Javaplus Innovations Limited is a software development and technology consulting firm with a mission to empower digital enterprises and help them operate more effectively by leveraging software engineering excellence.
+                            Ganzy-Malgwi Technologies is a dynamic software development and tech consulting company dedicated to enabling digital businesses to thrive. Through cutting-edge software engineering, the firm helps organizations streamline operations and achieve greater efficiency.
                         </p>
                         <div className="flex space-x-4">
                             {[FaFacebook, FaTwitter, FaGoogle, FaLinkedin, FaVimeo, FaYoutube].map((Icon, index) => (
@@ -31,10 +31,10 @@ const Footer = () => {
                     <div>
                         <h4 className="text-xl font-bold mb-4">Contact Us</h4>
                         <div className="space-y-3 text-gray-300">
-                            <p>7th Floor, Mulliner Towers Ikoyi, Lagos, Nigeria.</p>
-                            <p>+2348165956554</p>
-                            <p>+2348023165475</p>
-                            <p>info@javaplusinnovations.com</p>
+                            <p>Commercial, Avenue Sabo, Lagos, Nigeria.</p>
+                            <p>+234 815 254 6005</p>
+                            <p>+234 815 254 6005</p>
+                            <p>ganzymalgwitechnologies@gmail.com</p>
                         </div>
                     </div>
 
@@ -47,7 +47,7 @@ const Footer = () => {
                             <li>Sunday and holidays: 8:00 - 10:00</li>
                         </ul>
                         <p className="text-gray-300 mb-4">
-                            <span className="font-semibold">For more than 10 years,</span> JavaPlus has been a reliable partner in the field of Software development.
+                            <span className="font-semibold">For more than 3 years,</span> Ganzy-Malgwi Technologies has consistently proven to be a trusted ally in the realm of software development, delivering dependable solutions and fostering long-term success for its clients.
                         </p>
                         <a href="#contact" className="text-blue-400 hover:text-blue-300 transition duration-300">
                             Start a Project →
@@ -57,7 +57,7 @@ const Footer = () => {
 
                 {/* Copyright */}
                 <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                    <p>Copyright {currentYear} Javaplus Innovations. All Rights Reserved | Design By Javaplus Innovations Ltd</p>
+                    <p>Copyright {currentYear} Ganzy-Malgwi Technologies. All Rights Reserved | Design By Ganzy-Malgwi Technologies</p>
                 </div>
             </div>
         </footer>
