@@ -4,7 +4,11 @@
 /node_modules
 /.pnp
 .pnp.js
-
+ .idea/copilot.data.migration.edit.xml
+ .idea/ganzymalgwitechnologies.iml
+ .idea/inspectionProfiles/
+ .idea/modules.xml
+ .idea/vcs.xml
 # testing
 /coverage
 
