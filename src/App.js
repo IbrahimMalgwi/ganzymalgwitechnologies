@@ -5,7 +5,6 @@ import Hero from './components/sections/Hero';
 import Services from './components/sections/Services';
 import About from './components/sections/About';
 import Industries from './components/sections/Industries';
-import Process from './components/sections/Process';
 import Portfolio from './components/sections/Portfolio';
 import Technologies from './components/sections/Technologies';
 import Testimonials from './components/sections/Testimonials';
@@ -18,15 +17,14 @@ function App() {
             <Header />
             <main>
                 <Hero />
-                <Services />
                 <About />
+                <Services />
                 <Industries />
-                <Process />
                 <Portfolio />
                 <Technologies />
                 <Testimonials />
-                <Contact />
                 <Clients />
+                <Contact />
             </main>
             <Footer />
         </div>
