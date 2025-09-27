@@ -6,7 +6,7 @@ export const testimonials = [
         position: 'CEO',
         company: 'Arravo Ltd',
         image: '/assets/img/testimonials/Ayo-Adegboye-228x250.jpeg',
-        content: 'Working with JavaPlus Innovations has been one of the best IT decisions my company made. Our IT project was executed in a timely and professional manner with lots of creativity and innovations brought into the solution. Thanks and keep up the great work team!',
+        content: 'Working with Ganzy- Malgwi Technologis has been one of the best IT decisions my company made. Our IT project was executed in a timely and professional manner with lots of creativity and innovations brought into the solution. Thanks and keep up the great work team!',
         rating: 5
     },
     {
@@ -24,7 +24,7 @@ export const testimonials = [
         position: 'Entrepreneur',
         company: 'Tech Startup Founder',
         image: '/assets/img/testimonials/0579017.jpeg',
-        content: 'I was referred by a friend to consult JavaPlus Innovations on an enterprise solution needed to be developed by my company. Initially I had a second thought contracting the project to JavaPlus but by the time the team was done with my solution, I was more than convinced that JavaPlus Innovations is the best software development company in Nigeria!',
+        content: 'I was referred by a friend to consult Ganzy-Malgwi Technologies on an enterprise solution needed to be developed by my company. Initially I had a second thought contracting the project to JavaPlus but by the time the team was done with my solution, I was more than convinced that JavaPlus Innovations is the best software development company in Nigeria!',
         rating: 5
     },
     {
