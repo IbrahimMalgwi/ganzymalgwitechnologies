@@ -21,9 +21,9 @@ function App() {
                 <Services />
                 <Industries />
                 <Portfolio />
-                <Technologies />
-                <Testimonials />
                 <Clients />
+                <Testimonials />
+                <Technologies />
                 <Contact />
             </main>
             <Footer />
