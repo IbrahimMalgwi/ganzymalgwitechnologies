@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import SectionTitle from '../common/SectionTitle';
 import { testimonials } from '../../data/testimonials';
-import { FaQuoteLeft, FaStar, FaArrowLeft, FaArrowRight, FaPlayCircle, FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
+import { FaStar, FaArrowLeft, FaArrowRight, FaPlayCircle, FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 
 const Testimonials = () => {
     const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -19,7 +19,7 @@ const Testimonials = () => {
         }, 4000); // Slightly faster for better flow
 
         return () => clearInterval(timer);
-    }, [isAutoPlaying, testimonials.length]);
+    }, [isAutoPlaying]); // Removed testimonials.length dependency
 
     const nextTestimonial = () => {
         setActiveTestimonial(prev => (prev + 1) % testimonials.length);
