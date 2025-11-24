@@ -43,13 +43,13 @@ const Hero = () => {
         setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
         setIsPlaying(false);
         setTimeout(() => setIsPlaying(true), 8000);
-    }, []); // Removed heroSlides.length dependency
+    }, []);
 
     const prevSlide = useCallback(() => {
         setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
         setIsPlaying(false);
         setTimeout(() => setIsPlaying(true), 8000);
-    }, []); // Removed heroSlides.length dependency
+    }, []);
 
     const togglePlayPause = useCallback(() => {
         setIsPlaying((prev) => !prev);
@@ -68,7 +68,7 @@ const Hero = () => {
         return () => {
             if (timer) clearInterval(timer);
         };
-    }, [isPlaying, isLoading]); // Removed heroSlides.length dependency
+    }, [isPlaying, isLoading]);
 
     // Keyboard navigation
     useEffect(() => {
@@ -115,12 +115,12 @@ const Hero = () => {
 
     return (
         <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-white to-gray-50">
-            {/* 🔹 Scrolling Welcome Banner on Top */}
+            {/* 🔹 Updated Welcome Banner */}
             <div className="absolute top-0 left-0 w-full bg-gradient-to-r from-[#0F009A] to-[#6A00FF] text-white py-3 overflow-hidden z-30 shadow-lg">
                 <div className="whitespace-nowrap animate-marquee text-center text-sm md:text-base font-semibold tracking-wider">
                     <span className="inline-flex items-center space-x-4">
                         <span>🚀</span>
-                        <span>WELCOME TO GANZY-MALGWI TECHNOLOGIES — INNOVATIVE SOFTWARE SOLUTIONS TAILORED FOR YOUR BUSINESS NEEDS</span>
+                        <span>WELCOME TO GANZY-MALGWI TECHNOLOGIES — ICT • RENEWABLE ENERGY • SECURITY SOLUTIONS</span>
                         <span>🚀</span>
                     </span>
                 </div>
@@ -155,6 +155,14 @@ const Hero = () => {
             <div className="relative z-10 min-h-screen flex items-center justify-center pt-24 lg:pt-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center text-white space-y-6 lg:space-y-8 max-w-6xl mx-auto">
+                        {/* Service Area Badge */}
+                        <div className="inline-flex items-center px-4 py-2 rounded-full bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 animate-fade-in">
+                            <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                            <span className="text-sm font-semibold text-white uppercase tracking-wide">
+                                {heroSlides[currentSlide].area}
+                            </span>
+                        </div>
+
                         {/* Main Title */}
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-shadow-lg animate-slide-up">
                             {heroSlides[currentSlide].title}
@@ -165,10 +173,17 @@ const Hero = () => {
                             {heroSlides[currentSlide].subtitle}
                         </p>
 
-                        {/* Description */}
-                        <p className="text-lg lg:text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto animate-slide-up animation-delay-500">
-                            {heroSlides[currentSlide].description}
-                        </p>
+                        {/* Service Features */}
+                        <div className="flex flex-wrap justify-center gap-3 max-w-2xl mx-auto animate-fade-in animation-delay-500">
+                            {heroSlides[currentSlide].features.map((feature, index) => (
+                                <span
+                                    key={index}
+                                    className="px-4 py-2 bg-white bg-opacity-10 backdrop-blur-sm rounded-full text-white text-sm border border-white border-opacity-20 hover:bg-opacity-20 transition-all duration-300"
+                                >
+                                    {feature}
+                                </span>
+                            ))}
+                        </div>
 
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in animation-delay-700">
@@ -180,7 +195,7 @@ const Hero = () => {
                                 iconPosition="right"
                                 className="whitespace-nowrap bg-gradient-to-r from-[#0F009A] to-[#6A00FF] hover:from-[#0D0085] hover:to-[#5A00D5]"
                             >
-                                Our Services
+                                Explore Services
                             </Button>
 
                             <Button
@@ -191,14 +206,23 @@ const Hero = () => {
                             >
                                 Start a Project
                             </Button>
+
+                            <Button
+                                href="#training"
+                                variant="ghost"
+                                size="large"
+                                className="whitespace-nowrap text-white hover:bg-white hover:bg-opacity-10"
+                            >
+                                Training Programs
+                            </Button>
                         </div>
 
-                        {/* Stats Section */}
+                        {/* Stats Section - Updated for your business */}
                         <div className="grid grid-cols-3 gap-6 lg:gap-8 pt-8 mt-8 border-t border-white border-opacity-30 animate-fade-in animation-delay-1000">
                             {[
+                                { number: "3", label: "Core Services" },
                                 { number: "180+", label: "Happy Clients" },
-                                { number: "35+", label: "Projects Done" },
-                                { number: "5+", label: "Years Experience" },
+                                { number: "35+", label: "Projects Completed" },
                             ].map((stat, index) => (
                                 <div key={index} className="text-center">
                                     <div className="text-3xl lg:text-4xl font-bold text-white mb-2">{stat.number}</div>
@@ -237,20 +261,29 @@ const Hero = () => {
                         )}
                     </button>
 
-                    {/* Slide Indicators */}
-                    <div className="flex space-x-3">
-                        {heroSlides.map((_, index) => (
+                    {/* Slide Indicators with Service Names */}
+                    <div className="flex space-x-3 items-center">
+                        {heroSlides.map((slide, index) => (
                             <button
                                 key={index}
                                 onClick={() => goToSlide(index)}
-                                className={`w-3 h-3 rounded-full transition-all duration-300 transform hover:scale-125 ${
+                                className={`flex flex-col items-center transition-all duration-300 ${
+                                    index === currentSlide
+                                        ? "scale-110"
+                                        : "opacity-70 hover:opacity-100"
+                                }`}
+                                aria-label={`Go to ${slide.area} slide`}
+                                aria-current={index === currentSlide ? "true" : "false"}
+                            >
+                                <div className={`w-3 h-3 rounded-full transition-all duration-300 mb-1 ${
                                     index === currentSlide
                                         ? "bg-white scale-125"
-                                        : "bg-white bg-opacity-50 hover:bg-opacity-75"
-                                }`}
-                                aria-label={`Go to slide ${index + 1}`}
-                                aria-current={index === currentSlide ? "true" : "false"}
-                            />
+                                        : "bg-white bg-opacity-50"
+                                }`} />
+                                <span className="text-xs text-white font-medium hidden sm:block">
+                                    {slide.area.split(' ')[0]}
+                                </span>
+                            </button>
                         ))}
                     </div>
 
@@ -274,19 +307,14 @@ const Hero = () => {
                 aria-label="Scroll to next section"
             >
                 <span className="text-sm font-medium group-hover:translate-y-1 transition-transform">
-                    Scroll Down
+                    Explore Services
                 </span>
                 <FaChevronDown className="w-4 h-4 animate-bounce-slow" />
             </button>
 
-            {/* Background Elements matching your design */}
+            {/* Background Elements */}
             <div className="absolute top-0 left-0 w-80 h-80 bg-[#0F009A] opacity-5 rounded-full -translate-x-40 -translate-y-40"></div>
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0F009A] opacity-5 rounded-full translate-x-48 translate-y-48"></div>
-
-            {/* Floating Elements for Visual Interest */}
-            <div className="absolute top-1/4 left-10 w-6 h-6 bg-yellow-400 rounded-full opacity-20 animate-float animation-delay-300 hidden lg:block"></div>
-            <div className="absolute bottom-1/3 right-16 w-8 h-8 bg-green-400 rounded-full opacity-20 animate-float animation-delay-700 hidden lg:block"></div>
-            <div className="absolute top-1/3 right-1/4 w-5 h-5 bg-blue-400 rounded-full opacity-15 animate-float animation-delay-1000 hidden lg:block"></div>
         </section>
     );
 };

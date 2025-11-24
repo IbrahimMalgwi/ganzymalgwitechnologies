@@ -1,20 +1,44 @@
 export const heroSlides = [
     {
-        title: "TECH SOLUTIONS TAILORED FOR CUSTOMERS' NEEDS",
-        subtitle: "Innovative software solutions designed specifically for your business requirements",
-        description: "We add value to your business through cutting-edge technology without losing focus on the customer's need. We design, develop and support software solutions for all businesses.",
+        area: "ICT & Media",
+        title: "Digital Innovation & Media Solutions",
+        subtitle: "Transforming Ideas into Digital Reality",
+        description: "Custom software development, web applications, multimedia production, and networking solutions that drive your business forward.",
         bgImage: "/assets/img/banner/background1.jpg",
+        features: [
+            "Web Development",
+            "Mobile Apps",
+            "Multimedia Production",
+            "IT Networking",
+            "Digital Marketing"
+        ]
     },
     {
-        title: "DEVELOPED INNOVATIVE SOLUTIONS FOR ALL BUSINESSES",
-        subtitle: "Custom software development and IT outsourcing services",
-        description: "We are at the forefront of technology, providing custom software development for companies, small and large businesses, banks, and others.",
+        area: "Renewable Energy",
+        title: "Sustainable Energy Solutions",
+        subtitle: "Powering the Future with Clean Energy",
+        description: "Solar installations, wind energy systems, and sustainable power solutions for homes, businesses, and communities.",
         bgImage: "/assets/img/banner/background2.jpg",
+        features: [
+            "Solar Power Systems",
+            "Wind Energy",
+            "Energy Consulting",
+            "Installation Services",
+            "Maintenance"
+        ]
     },
     {
-        title: "ACHIEVE BUSINESS GOALS AND TARGETS",
-        subtitle: "Minimum Viable Products and agile development sprints",
-        description: "We build MVPs and test concepts with users via agile development sprints, delivering core value efficiently.",
+        area: "Security Systems",
+        title: "Comprehensive Security Solutions",
+        subtitle: "Protecting What Matters Most",
+        description: "Advanced CCTV systems, vehicle tracking, cybersecurity, and integrated security solutions for complete peace of mind.",
         bgImage: "/assets/img/banner/background3.jpg",
-    },
+        features: [
+            "CCTV Systems",
+            "Vehicle Tracking",
+            "Cybersecurity",
+            "Access Control",
+            "Security Consulting"
+        ]
+    }
 ];
