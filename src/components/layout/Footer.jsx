@@ -14,9 +14,10 @@ const Footer = () => {
                             Ganzy-Malgwi Technologies
                         </h4>
                         <p className="text-gray-300 leading-relaxed">
-                            Ganzy-Malgwi Technologies is a dynamic software development and tech consulting company
-                            dedicated to enabling digital businesses to thrive. Through cutting-edge software engineering,
-                            the firm helps organizations streamline operations and achieve greater efficiency.
+                            Ganzy-Malgwi Technologies is a comprehensive technology solutions provider specializing in
+                            three core areas: ICT & Media solutions, Renewable Energy systems, and Security solutions.
+                            We deliver innovative technology services coupled with expert training and consultancy to
+                            empower businesses across various industries.
                         </p>
                         <div className="flex space-x-3">
                             {[FaFacebook, FaTwitter, FaGoogle, FaLinkedin, FaVimeo, FaYoutube].map((Icon, index) => (
@@ -76,9 +77,10 @@ const Footer = () => {
                             </li>
                         </ul>
                         <p className="text-gray-300 leading-relaxed">
-                            <span className="font-semibold text-blue-400">For more than 3 years,</span> Ganzy-Malgwi Technologies
-                            has consistently proven to be a trusted ally in the realm of software development,
-                            delivering dependable solutions and fostering long-term success for its clients.
+                            <span className="font-semibold text-blue-400">For more than 5 years,</span> Ganzy-Malgwi Technologies
+                            has been a trusted partner in technology solutions, delivering reliable ICT systems,
+                            sustainable energy solutions, and comprehensive security systems while providing
+                            expert training and consultancy services.
                         </p>
                         <a
                             href="#contact"

@@ -186,12 +186,18 @@ const Portfolio = () => {
                             Let's create something amazing together. Contact us to discuss your project ideas and get a free consultation.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button className="bg-white text-[#0F009A] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300">
+                            <a
+                                href="#contact"
+                                className="bg-white text-[#0F009A] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 inline-block"
+                            >
                                 Start a Project
-                            </button>
-                            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#0F009A] transition-all duration-300">
+                            </a>
+                            <a
+                                href="#portfolio"
+                                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#0F009A] transition-all duration-300 inline-block"
+                            >
                                 View All Case Studies
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

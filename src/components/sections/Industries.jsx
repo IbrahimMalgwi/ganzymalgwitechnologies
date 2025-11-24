@@ -149,12 +149,18 @@ const Industries = () => {
                             Every business is unique. Contact us to discuss how we can create custom solutions tailored specifically to your industry's needs.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button className="bg-white text-[#0F009A] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300">
+                            <a
+                                href="#contact"
+                                className="bg-white text-[#0F009A] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 inline-block"
+                            >
                                 Contact Our Experts
-                            </button>
-                            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#0F009A] transition-all duration-300">
+                            </a>
+                            <a
+                                href="#portfolio"
+                                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#0F009A] transition-all duration-300 inline-block"
+                            >
                                 View Case Studies
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
