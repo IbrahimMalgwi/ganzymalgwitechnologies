@@ -28,7 +28,7 @@ const Industries = () => {
 
     const stats = [
         { value: '12+', label: 'Industries Served' },
-        { value: '50+', label: 'Projects Delivered' },
+        { value: '35+', label: 'Projects Delivered' },
         { value: '100%', label: 'Client Satisfaction' },
         { value: '5+', label: 'Years Experience' }
     ];

@@ -1,4 +1,4 @@
- // src/components/sections/Portfolio.jsx
+// src/components/sections/Portfolio.jsx
 import React, { useState } from 'react';
 import SectionTitle from '../common/SectionTitle';
 import PortfolioCard from '../ui/PortfolioCard';
@@ -11,12 +11,13 @@ const Portfolio = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const projectsPerPage = 6;
 
+    // Updated categories only - layout remains identical
     const portfolioCategories = [
         { id: 'all', name: 'All Projects', count: portfolioItems.length },
-        { id: 'web', name: 'Web Applications', count: portfolioItems.filter(p => p.category === 'web').length },
-        { id: 'mobile', name: 'Mobile Apps', count: portfolioItems.filter(p => p.category === 'mobile').length },
-        { id: 'fintech', name: 'FinTech', count: portfolioItems.filter(p => p.category === 'fintech').length },
-        { id: 'ecommerce', name: 'E-Commerce', count: portfolioItems.filter(p => p.category === 'ecommerce').length }
+        { id: 'ict-media', name: 'ICT & Media', count: portfolioItems.filter(p => p.category === 'ict-media').length },
+        { id: 'renewable-energy', name: 'Renewable Energy', count: portfolioItems.filter(p => p.category === 'renewable-energy').length },
+        { id: 'security', name: 'Security Systems', count: portfolioItems.filter(p => p.category === 'security').length },
+        { id: 'training', name: 'Training', count: portfolioItems.filter(p => p.category === 'training').length }
     ];
 
     const filteredItems = activeFilter === 'all'
@@ -52,12 +53,12 @@ const Portfolio = () => {
 
     return (
         <section id="portfolio" className="section-padding bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
-            {/* Background Elements */}
+            {/* Background Elements - EXACTLY THE SAME */}
             <div className="absolute top-0 left-0 w-80 h-80 bg-[#0F009A] opacity-5 rounded-full -translate-x-40 -translate-y-40"></div>
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0F009A] opacity-5 rounded-full translate-x-48 translate-y-48"></div>
 
             <div className="container-custom relative z-10">
-                {/* Header Section */}
+                {/* Header Section - EXACTLY THE SAME */}
                 <div className="text-center mb-16">
                     <SectionTitle
                         tag="OUR PORTFOLIO"
@@ -67,7 +68,7 @@ const Portfolio = () => {
                     />
                 </div>
 
-                {/* Portfolio Stats */}
+                {/* Portfolio Stats - EXACTLY THE SAME */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                     {stats.map((stat, index) => (
                         <div key={index} className="text-center group">
@@ -83,7 +84,7 @@ const Portfolio = () => {
                     ))}
                 </div>
 
-                {/* Filter Tabs */}
+                {/* Filter Tabs - EXACT SAME LAYOUT, only category names changed */}
                 <div className="flex flex-wrap justify-center gap-4 mb-12">
                     {portfolioCategories.map((category) => (
                         <button
@@ -110,7 +111,7 @@ const Portfolio = () => {
                     ))}
                 </div>
 
-                {/* Portfolio Grid */}
+                {/* Portfolio Grid - EXACTLY THE SAME */}
                 <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
                     {currentProjects.map((item, index) => (
                         <PortfolioCard
@@ -122,7 +123,7 @@ const Portfolio = () => {
                     ))}
                 </div>
 
-                {/* No Projects Message */}
+                {/* No Projects Message - EXACTLY THE SAME */}
                 {currentProjects.length === 0 && (
                     <div className="text-center py-12">
                         <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -133,7 +134,7 @@ const Portfolio = () => {
                     </div>
                 )}
 
-                {/* Pagination */}
+                {/* Pagination - EXACTLY THE SAME */}
                 {totalPages > 1 && (
                     <div className="flex justify-center items-center space-x-4 mt-12">
                         <button
@@ -175,7 +176,7 @@ const Portfolio = () => {
                     </div>
                 )}
 
-                {/* CTA Section */}
+                {/* CTA Section - EXACTLY THE SAME */}
                 <div className="text-center mt-16">
                     <div className="bg-gradient-to-r from-[#0F009A] to-[#6A00FF] rounded-2xl p-8 lg:p-12 text-white shadow-2xl">
                         <h3 className="text-2xl lg:text-3xl font-bold mb-4">
@@ -196,7 +197,7 @@ const Portfolio = () => {
                 </div>
             </div>
 
-            {/* Project Detail Modal */}
+            {/* Project Detail Modal - EXACTLY THE SAME */}
             {activeProject && (
                 <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4">
                     <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
