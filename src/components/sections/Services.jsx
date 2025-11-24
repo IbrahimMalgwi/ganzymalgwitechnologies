@@ -7,13 +7,12 @@ import { services } from '../../data/services';
 const Services = () => {
     const [activeCategory, setActiveCategory] = useState('all');
 
-    // Updated categories based on your core services
+    // Updated categories only - layout remains identical
     const serviceCategories = [
         { id: 'all', name: 'All Services', count: services.length },
         { id: 'ict-media', name: 'ICT & Media', count: services.filter(s => s.category === 'ict-media').length },
         { id: 'renewable-energy', name: 'Renewable Energy', count: services.filter(s => s.category === 'renewable-energy').length },
         { id: 'security', name: 'Security Systems', count: services.filter(s => s.category === 'security').length },
-        { id: 'training', name: 'Training', count: services.filter(s => s.category === 'training').length },
     ];
 
     const filteredServices = activeCategory === 'all'
@@ -22,19 +21,19 @@ const Services = () => {
 
     return (
         <section id="service" className="section-padding bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
-            {/* Background Elements */}
+            {/* Background Elements - EXACTLY THE SAME */}
             <div className="absolute top-0 right-0 w-72 h-72 bg-[#0F009A] opacity-5 rounded-full -translate-y-36 translate-x-36"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#0F009A] opacity-5 rounded-full translate-y-48 -translate-x-48"></div>
 
             <div className="container-custom relative z-10">
                 <SectionTitle
                     tag="OUR SERVICES"
-                    title="Comprehensive Technology Solutions"
-                    description="Expert services across ICT & Media, Renewable Energy, and Security Systems with specialized training and consultancy."
+                    title="What We Do"
+                    description="Comprehensive software solutions tailored to drive your business forward with innovation and excellence."
                     centered
                 />
 
-                {/* Category Filter - Same layout, updated categories */}
+                {/* Category Filter - EXACT SAME LAYOUT, only category names changed */}
                 <div className="flex flex-wrap justify-center gap-4 mb-12">
                     {serviceCategories.map((category) => (
                         <button
@@ -58,7 +57,7 @@ const Services = () => {
                     ))}
                 </div>
 
-                {/* Services Grid - Same layout, updated content */}
+                {/* Services Grid - EXACTLY THE SAME */}
                 <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
                     {filteredServices.map((service, index) => (
                         <ServiceCard
@@ -69,20 +68,20 @@ const Services = () => {
                     ))}
                 </div>
 
-                {/* CTA Section - Same layout, updated text */}
+                {/* CTA Section - EXACTLY THE SAME */}
                 <div className="text-center mt-16 p-8 bg-white rounded-2xl shadow-xl border border-gray-100">
                     <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-                        Ready to Transform Your Business with Technology?
+                        Ready to Transform Your Business?
                     </h3>
                     <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                        Let's discuss how our integrated solutions across ICT, Energy, and Security can drive your business forward with custom solutions that deliver real results.
+                        Let's discuss how our services can help you achieve your goals. We provide custom solutions that drive real results.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <button className="bg-[#0F009A] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#0D0085] transform hover:scale-105 transition-all duration-300 shadow-lg shadow-[#0F009A]/25">
                             Start a Project
                         </button>
                         <button className="border-2 border-[#0F009A] text-[#0F009A] px-8 py-3 rounded-lg font-semibold hover:bg-[#0F009A] hover:text-white transition-all duration-300">
-                            Training Programs
+                            View Case Studies
                         </button>
                     </div>
                 </div>
