@@ -5,18 +5,21 @@ import IndustryCard from '../ui/IndustryCard';
 import IndustryModal from '../ui/IndustryModal';
 import useModal from '../../hooks/useModal';
 import { industries } from '../../data/industries';
-import { FaSearch, FaChartLine, FaUsers, FaLightbulb } from 'react-icons/fa';
+import { FaSearch, FaChartLine, FaUsers } from 'react-icons/fa';
 
 const Industries = () => {
     const { isOpen, modalData, openModal, closeModal } = useModal();
     const [activeFilter, setActiveFilter] = useState('all');
     const [searchTerm, setSearchTerm] = useState('');
 
+    // Updated categories only - layout remains identical
     const industryCategories = [
         { id: 'all', name: 'All Industries', count: industries.length, icon: FaChartLine },
-        { id: 'tech', name: 'Technology', count: industries.filter(i => i.category === 'tech').length, icon: FaLightbulb },
         { id: 'finance', name: 'Finance', count: industries.filter(i => i.category === 'finance').length, icon: FaChartLine },
-        { id: 'services', name: 'Services', count: industries.filter(i => i.category === 'services').length, icon: FaUsers }
+        { id: 'education', name: 'Education', count: industries.filter(i => i.category === 'education').length, icon: FaUsers },
+        { id: 'healthcare', name: 'Healthcare', count: industries.filter(i => i.category === 'healthcare').length, icon: FaUsers },
+        { id: 'retail', name: 'Retail', count: industries.filter(i => i.category === 'retail').length, icon: FaUsers },
+        { id: 'manufacturing', name: 'Manufacturing', count: industries.filter(i => i.category === 'manufacturing').length, icon: FaUsers }
     ];
 
     const filteredIndustries = industries.filter(industry => {
@@ -35,12 +38,12 @@ const Industries = () => {
 
     return (
         <section id="industry" className="section-padding bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-            {/* Background Elements */}
+            {/* Background Elements - EXACTLY THE SAME */}
             <div className="absolute top-0 left-0 w-80 h-80 bg-[#0F009A] opacity-5 rounded-full -translate-x-40 -translate-y-40"></div>
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0F009A] opacity-5 rounded-full translate-x-48 translate-y-48"></div>
 
             <div className="container-custom relative z-10">
-                {/* Header Section */}
+                {/* Header Section - EXACTLY THE SAME */}
                 <div className="text-center mb-16">
                     <SectionTitle
                         tag="INDUSTRIES WE SERVE"
@@ -50,7 +53,7 @@ const Industries = () => {
                     />
                 </div>
 
-                {/* Stats Overview */}
+                {/* Stats Overview - EXACTLY THE SAME */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                     {stats.map((stat, index) => (
                         <div key={index} className="text-center group">
@@ -66,10 +69,10 @@ const Industries = () => {
                     ))}
                 </div>
 
-                {/* Search and Filter Section */}
+                {/* Search and Filter Section - EXACTLY THE SAME */}
                 <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-12">
                     <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
-                        {/* Search Box */}
+                        {/* Search Box - EXACTLY THE SAME */}
                         <div className="flex-1 w-full lg:max-w-md">
                             <div className="relative">
                                 <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -83,7 +86,7 @@ const Industries = () => {
                             </div>
                         </div>
 
-                        {/* Filter Tabs */}
+                        {/* Filter Tabs - EXACT SAME LAYOUT, only category names changed */}
                         <div className="flex flex-wrap gap-3">
                             {industryCategories.map((category) => {
                                 const IconComponent = category.icon;
@@ -113,7 +116,7 @@ const Industries = () => {
                     </div>
                 </div>
 
-                {/* Industries Grid */}
+                {/* Industries Grid - EXACTLY THE SAME */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     {filteredIndustries.map((industry, index) => (
                         <IndustryCard
@@ -125,7 +128,7 @@ const Industries = () => {
                     ))}
                 </div>
 
-                {/* No Results Message */}
+                {/* No Results Message - EXACTLY THE SAME */}
                 {filteredIndustries.length === 0 && (
                     <div className="text-center py-12">
                         <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -136,7 +139,7 @@ const Industries = () => {
                     </div>
                 )}
 
-                {/* CTA Section */}
+                {/* CTA Section - EXACTLY THE SAME */}
                 <div className="text-center mt-16">
                     <div className="bg-gradient-to-r from-[#0F009A] to-[#6A00FF] rounded-2xl p-8 lg:p-12 text-white shadow-2xl">
                         <h3 className="text-2xl lg:text-3xl font-bold mb-4">
@@ -157,7 +160,7 @@ const Industries = () => {
                 </div>
             </div>
 
-            {/* Industry Modal */}
+            {/* Industry Modal - EXACTLY THE SAME */}
             <IndustryModal
                 isOpen={isOpen}
                 industry={modalData}
